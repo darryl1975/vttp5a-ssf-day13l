@@ -56,6 +56,10 @@ public class Person {
     @Max(value = 999999, message = "Postal Code cannot exceed 999999")
     private Integer postalCode;
 
+    public Person() {
+        this.id = UUID.randomUUID().toString();
+    }
+
     public Person(String firstName, String lastName, String email, Integer salary, Date dob, String telephone, Integer postalCode) {
         this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
