@@ -1,5 +1,5 @@
 # the base image with JDK use to build and run your java application
-FROM maven:3-eclipse-temurin-23-alpine
+FROM eclipse-temurin:23-jdk
 
 # labeling the dockerfile
 LABEL MAINTAINER="darryl"
@@ -23,8 +23,8 @@ COPY .mvn .mvn
 # this will download the dependencies definedin pom.xml
 # compile and package to jar
 # RUN chmod a+x ./mvnw
-# RUN chmod a+x ./mvnw && ./mvnw clean package -Dmaven.test.skip=true
-RUN mvn package -Dmaven.test.skip=true
+RUN chmod a+x ./mvnw && ./mvnw clean package -Dmaven.test.skip=true
+# RUN mvn package -Dmaven.test.skip=true
 
 ENV SERVER_PORT 3000
 
